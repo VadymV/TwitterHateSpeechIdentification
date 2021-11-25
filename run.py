@@ -21,22 +21,22 @@ SEEDS = [10, 11, 12]
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ---- Train models ----
-# print("Training stage")
-# cnn_metrics_accumulator = TorchMetricsAccumulator()
-# roberta_metrics_accumulator = TorchMetricsAccumulator()
-# for seed in SEEDS:
-#     random.seed(seed)
-#     np.random.seed(seed)
-#     torch.manual_seed(seed)
-#     torch.backends.cudnn.deterministic = True
-#
-#     cnn_model_initializer = CNNInitializer(BATCH_SIZE, device)
-#     misc.train_model(EPOCHS, cnn_model_initializer, device, "cnnModel", seed, cnn_metrics_accumulator)
-#     cnn_metrics_accumulator.write_metrics("cnn_model_metrics.csv")
-#
-#     roberta_model_initializer = RoBERTaInitializer(BATCH_SIZE, device)
-#     misc.train_model(EPOCHS, roberta_model_initializer, device, "robertaModel", seed, roberta_metrics_accumulator)
-#     roberta_metrics_accumulator.write_metrics("roberta_model_metrics.csv")
+print("Training stage")
+cnn_metrics_accumulator = TorchMetricsAccumulator()
+roberta_metrics_accumulator = TorchMetricsAccumulator()
+for seed in SEEDS:
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
+
+    cnn_model_initializer = CNNInitializer(BATCH_SIZE, device)
+    misc.train_model(EPOCHS, cnn_model_initializer, device, "cnnModel", seed, cnn_metrics_accumulator)
+    cnn_metrics_accumulator.write_metrics("cnn_model_metrics.csv")
+
+    roberta_model_initializer = RoBERTaInitializer(BATCH_SIZE, device)
+    misc.train_model(EPOCHS, roberta_model_initializer, device, "robertaModel", seed, roberta_metrics_accumulator)
+    roberta_metrics_accumulator.write_metrics("roberta_model_metrics.csv")
 
 # ---- Evaluate models ----
 trials = [1, 2, 3]
