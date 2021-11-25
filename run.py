@@ -39,7 +39,8 @@ for seed in SEEDS:
     roberta_metrics_accumulator.write_metrics("roberta_model_metrics.csv")
 
 # ---- Evaluate models ----
-trials = [1, 2, 3]
+
+trials = list(range(1, len(SEEDS) + 1))
 for i in range(0, len(trials)):
     print("Evaluation stage")
 
