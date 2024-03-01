@@ -10,7 +10,7 @@ See report.pdf for more information
 
 ### Installation:
 - install pytorch: https://pytorch.org/get-started/locally/
-- run `pip install torchtext torchmetrics mlxtend matplotlib install nltk emoji transformers regex requests hydra-core omegaconf statsmodels seaborn scipy`
+- Install the following packages: ` torchtext torchmetrics mlxtend matplotlib install nltk emoji transformers regex requests hydra-core omegaconf statsmodels seaborn scipy`
 - install spaCy: https://spacy.io/usage
 
 ### Run:
